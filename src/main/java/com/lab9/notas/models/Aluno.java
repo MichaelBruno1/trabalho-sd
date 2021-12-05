@@ -1,12 +1,14 @@
 package com.lab9.notas.models;
 
+import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.validation.constraints.NotBlank;
 
@@ -16,21 +18,17 @@ public class Aluno {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	
-	@NotBlank
-	private String nome;
-	
+		
 	@NotBlank
 	private String matricula;
-	
-	@ManyToMany
-	private List<Disciplina> disciplinas;
-	
-	@OneToMany
-	private List<Nota> notas;
+		
+	@OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "nota_id", referencedColumnName = "id")
+	private List<Nota> notas = new ArrayList<Nota>();
 
-	public Aluno(@NotBlank String nome, @NotBlank String matricula) {
-		this.nome = nome;
+	public Aluno() {}
+	
+	public Aluno(@NotBlank String matricula) {
 		this.matricula = matricula;
 	}
 
@@ -42,28 +40,17 @@ public class Aluno {
 		this.id = id;
 	}
 
-	public String getNome() {
-		return nome;
-	}
-
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
-
 	public String getMatricula() {
 		return matricula;
 	}
 
+	public Aluno matricula(String matricula) {
+		this.matricula = matricula;
+		return this;
+	}
+	
 	public void setMatricula(String matricula) {
 		this.matricula = matricula;
-	}
-
-	public List<Disciplina> getDisciplinas() {
-		return disciplinas;
-	}
-
-	public void setDisciplinas(List<Disciplina> disciplinas) {
-		this.disciplinas = disciplinas;
 	}
 
 	public List<Nota> getNotas() {

@@ -8,4 +8,5 @@ import com.lab9.notas.models.Aluno;
 @Repository
 public interface AlunoRepository extends JpaRepository<Aluno, Long>{
 
+	public Aluno findByMatricula(String matricula);
 }

@@ -8,4 +8,5 @@ import com.lab9.notas.models.Disciplina;
 @Repository
 public interface DisciplinaRepository extends JpaRepository<Disciplina, Long>{
 
+	public Disciplina findByCodigo(String codigo);
 }

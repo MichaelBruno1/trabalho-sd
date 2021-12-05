@@ -1,0 +1,196 @@
+openapi: "3.0.0"
+info:
+  version: "1.0.0"
+  title: "Trabalho de SD"
+  description: "Repositorio de notas"
+servers:
+  - url: http://localhost:8080
+tags:
+  - name: API
+
+paths:
+  /cadastrar_aluno/{matricula}:
+    post:
+      tags:
+        - API
+      summary: Cadastra um aluno.
+      parameters:
+        - in: path
+          name: matricula
+          description: 'Matricula a ser criada'
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: Aluno criado com sucesso 
+        '404':
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: Não foi possivel criar o aluno
+    
+  /cadastrar_disciplina/{codigo}:
+    post:
+      tags:
+        - API
+      summary: Cadastra uma disciplina.
+      parameters:
+        - in: path
+          name: codigo
+          description: 'Disciplina a ser criada'
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: Disciplina criada com sucesso 
+        '404':
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: Não foi possivel criar a disciplina          
+                
+  /cadastrar_nota/{matricula}/{codigo}/{nota}:
+    post:
+      tags:
+        - API
+      summary: Cadastra uma nota.
+      parameters:
+        - in: path
+          name: matricula
+          description: 'Matricula do aluno'
+          schema:
+            type: string
+          required: true
+        - in: path
+          name: codigo
+          description: 'Codigo da disciplina'
+          schema:
+            type: string
+          required: true
+        - in: path
+          name: nota
+          description: 'Nota do aluno'
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: Nota cadastrada
+        '404':
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: Não foi possivel cadastrar a nota
+                
+  /consultar_nota/{matricula}/{codigo}:
+    get:
+      tags:
+        - API
+      summary: Consultar a nota da disciplina.
+      parameters:
+        - in: path
+          name: matricula
+          description: 'Matricula do aluno'
+          schema:
+            type: string
+          required: true
+        - in: path
+          name: codigo
+          description: 'Codigo da disciplina'
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: number
+                example: 7.5
+        '404':
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: Não foi possivel encontrar o aluno ou a nota 
+                
+  /consultar_notas/{matricula}:
+    get:
+      tags:
+        - API
+      summary: Consultar todas as notas do aluno.
+      parameters:
+        - in: path
+          name: matricula
+          description: 'Matricula do aluno'
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "{ED1=5.0, SD=7.0}"
+        '404':
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: Não foi possivel encontrar as notas do aluno
+  
+  /consultar_cr/{matricula}:
+    get:
+      tags:
+        - API
+      summary: Consultar o CR.
+      parameters:
+        - in: path
+          name: matricula
+          description: 'Matricula do aluno'
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "CR: 7.0"
+        '404':
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: Não foi possivel calcular o CR do aluno
