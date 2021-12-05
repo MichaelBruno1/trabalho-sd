@@ -1,0 +1,132 @@
+{
+	"info": {
+		"_postman_id": "e1965b19-f1b3-4638-a69e-a3064d3167c8",
+		"name": "Trabalho SD",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "cadastrar_aluno",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/cadastrar_aluno/123",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"cadastrar_aluno",
+						"123"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "cadastrar_disciplina",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/cadastrar_disciplina/ED1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"cadastrar_disciplina",
+						"ED1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "cadastrar_nota",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/cadastrar_nota/123/ED1/7.0",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"cadastrar_nota",
+						"123",
+						"ED1",
+						"7.0"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "consultar_nota",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/consultar_nota/123/ED1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"consultar_nota",
+						"123",
+						"ED1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "consultar_notas",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/consultar_notas/123",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"consultar_notas",
+						"123"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "consultar_cr",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/consultar_cr/123",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"consultar_cr",
+						"123"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
